@@ -48,7 +48,7 @@ public class SnakeLadderGameDemo {
         } catch (Exception e) {
             System.out.println("Error reading inputs");
         } finally {
-
+            scanner.close();
         }
 
 

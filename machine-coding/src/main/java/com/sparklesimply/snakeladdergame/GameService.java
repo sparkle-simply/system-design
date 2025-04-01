@@ -22,9 +22,10 @@ public class GameService {
             int currentPosition = currentPlayer.getPosition();
             int diceValue = this.dice.roll();
             int newPosition = currentPosition + diceValue;
+            int finalPosition = this.board.getNextPosition(newPosition);
+            boolean isValidMove = this.board.isValidMove(newPosition) && this.board.isValidMove(finalPosition);
 
-            if(this.board.isValidMove(newPosition)) {
-                int finalPosition = this.board.getNextPosition(newPosition);
+            if(isValidMove) {
                 currentPlayer.setPosition(finalPosition);
 
                 System.out.println(currentPlayer.getName() + " rolled a " + diceValue + " and moved from "+ currentPosition + " to "+ newPosition);
